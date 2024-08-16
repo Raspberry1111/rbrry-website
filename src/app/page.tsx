@@ -6,7 +6,7 @@ export default function Home() {
 
 	return (
 		<main>
-			<h2 className={styles.wip}>Under Construction</h2>
+			<h2 className={styles.wip}>Under Construction (Preview)</h2>
 		</main>
 	);
 }
