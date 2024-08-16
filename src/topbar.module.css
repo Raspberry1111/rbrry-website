@@ -1,0 +1,30 @@
+.topbar {
+	display: flexbox;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.topbuttonContainer {
+	width: 100%;
+	padding: 1em 2em 0.5em 2em;
+	text-align: center;
+}
+
+.topbutton {
+	width: min-content;
+}
+
+.topbutton>div {
+	display: inline;
+}
+
+.topbuttonArrow {
+	color: lightblue;
+	display: inline;
+}
+
+.quote {
+	text-align: center;
+	color: rgba(255, 255, 255, 0.699);
+}
