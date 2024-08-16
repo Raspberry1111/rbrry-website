@@ -6,7 +6,7 @@ export default function Home() {
 
 	return (
 		<main>
-			<Link href="/test">test</Link>
+			<h2 className={styles.wip}>Under Construction</h2>
 		</main>
 	);
 }
