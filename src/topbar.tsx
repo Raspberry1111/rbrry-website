@@ -5,7 +5,6 @@ import styles from "./topbar.module.css";
 import Link from "next/link";
 import Scrambler from "./scrambler";
 import { usePathname } from "next/navigation";
-import path from "path";
 
 const HOMEPAGE_TITLE = "rbrry.fyi";
 const OTHER_TITLE = "return home";

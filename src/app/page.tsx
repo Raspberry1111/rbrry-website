@@ -6,7 +6,7 @@ export default function Home() {
 
 	return (
 		<main>
-			<Link href="/test">test</Link>
+			<Link href="/checkboxes">checkboxes</Link>
 		</main>
 	);
 }

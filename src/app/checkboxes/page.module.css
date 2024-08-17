@@ -1,0 +1,11 @@
+.checkboxContainer {
+	display: flexbox;
+	align-content: center;
+	justify-content: center;
+	padding: 2em;
+}
+
+.checkbox {
+	display: inline-block;
+	padding: 0.25em;
+}
