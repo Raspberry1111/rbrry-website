@@ -2,7 +2,7 @@
 	display: flexbox;
 	align-content: center;
 	justify-content: center;
-	padding: 2em;
+	padding: 0 2em 2em 2em;
 }
 
 .checkbox {

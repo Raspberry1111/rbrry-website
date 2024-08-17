@@ -3,3 +3,17 @@
 	text-align: center;
 	font-weight: normal;
 }
+
+.links {
+	list-style: none;
+	text-align: center;
+}
+
+.link-container {
+	display: list-item;
+	width: 100%;
+}
+
+.link {
+	width: min-content;
+}

@@ -1,4 +1,3 @@
-import { useLocalStorage } from "@/localStorage";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 function useCheckboxLocalStorage(id: number): [boolean, Dispatch<SetStateAction<boolean>>] {
@@ -28,8 +27,13 @@ function useCheckboxLocalStorage(id: number): [boolean, Dispatch<SetStateAction<
 	return [value, setValue] as const;
 }
 
-export default function Checkbox({ id }: { id: number }) {
-	const [isChecked, setIsChecked] = useCheckboxLocalStorage(id);
+export default function Checkbox({ checked, onClick }: { checked: boolean, onClick: (on: boolean) => void }) {
+	// const [isChecked, setIsChecked] = useCheckboxLocalStorage(id);
+	const [isChecked, setIsChecked] = useState(checked);
+
+	useEffect(() => {
+		onClick(isChecked);
+	}, [isChecked, onClick]);
 
 	return <input type="checkbox" checked={isChecked} onChange={e => setIsChecked(e.target.checked)} />
 }
