@@ -5,6 +5,11 @@ import styles from "./page.module.css";
 import Checkbox from "./checkbox";
 
 function loadCheckboxesState(): { [key: number]: boolean } {
+	if (global.localStorage === undefined) {
+		// We are on the server
+		return {};
+	}
+
 	const checkboxes = localStorage.getItem("checkboxes");
 	if (checkboxes) {
 		return JSON.parse(checkboxes);
