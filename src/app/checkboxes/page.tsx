@@ -1,15 +1,10 @@
 "use client";
 
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Checkbox from "./checkbox";
 
 function loadCheckboxesState(): { [key: number]: boolean } {
-	if (global.localStorage === undefined) {
-		// We are on the server
-		return {};
-	}
-
 	const checkboxes = localStorage.getItem("checkboxes");
 	if (checkboxes) {
 		return JSON.parse(checkboxes);
@@ -19,23 +14,29 @@ function loadCheckboxesState(): { [key: number]: boolean } {
 }
 
 export default function Checkboxes() {
-	const checkboxes: ReactElement[] = [];
-	const checkboxesState = loadCheckboxesState();
+	const [checkboxes, setCheckboxes] = useState<ReactElement[]>([]);
 
-	for (let i = 0; i < 10000; i++) {
-		const onClickHandler = (on: boolean) => {
-			if (on) {
-				checkboxesState[i] = true;
-			} else {
-				delete checkboxesState[i];
+	useEffect(() => {
+		const checkboxesState = loadCheckboxesState();
+		const checkboxes = [];
+
+		for (let i = 0; i < 10000; i++) {
+			const onClickHandler = (on: boolean) => {
+				if (on) {
+					checkboxesState[i] = true;
+				} else {
+					delete checkboxesState[i];
+				}
+				localStorage.setItem("checkboxes", JSON.stringify(checkboxesState));
 			}
-			localStorage.setItem("checkboxes", JSON.stringify(checkboxesState));
+
+			checkboxes.push(<div className={styles.checkbox} key={i}>
+				<Checkbox checked={checkboxesState[i]} onClick={onClickHandler} />
+			</div>);
 		}
 
-		checkboxes.push(<div className={styles.checkbox} key={i}>
-			<Checkbox checked={checkboxesState[i]} onClick={onClickHandler} />
-		</div>);
-	}
+		setCheckboxes(checkboxes);
+	}, []);
 
 	return <div className={styles.checkboxContainer}>
 		{checkboxes}
