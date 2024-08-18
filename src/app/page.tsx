@@ -1,14 +1,14 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 
+const link = (href: string, text: string) => <div className={styles.linkContainer}><Link className={styles.link} href={href}>{text}</Link></div>;
 
 export default function Home() {
-
 	return (
 		<main>
 			<ul className={styles.links}>
-				<div className={styles.linkContainer}><Link className={styles.link} href="/checkboxes">checkboxes</Link></div>
-				<div className={styles.linkContainer}><Link className={styles.link} href="/garlicbread">garlicbread</Link></div>
+				{link("/checkboxes", "checkboxes")}
+				{link("/garlicbread", "garlicbread")}
 			</ul>
 		</main>
 	);
