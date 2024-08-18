@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
@@ -45,7 +45,7 @@ export default function Scrambler({ text, setText, endingText, minIterations }: 
 		}, 50);
 
 		return () => clearInterval(interval);
-	}, [text, iteration, endingText, minIterations, setText])
+	}, [text, iteration, endingText, minIterations, setText]);
 
 	return (
 		<>{text}</>

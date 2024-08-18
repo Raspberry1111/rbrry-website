@@ -36,5 +36,5 @@ export default function Topbar() {
 
 			<div className={styles.quote}><i><q>Sometimes genius, always stupid</q></i></div>
 		</div >
-	)
+	);
 }

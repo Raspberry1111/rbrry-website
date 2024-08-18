@@ -28,7 +28,7 @@ export default function Checkboxes() {
 					delete checkboxesState[i];
 				}
 				localStorage.setItem("checkboxes", JSON.stringify(checkboxesState));
-			}
+			};
 
 			checkboxes.push(<div className={styles.checkbox} key={i}>
 				<Checkbox checked={checkboxesState[i]} onClick={onClickHandler} />
@@ -40,5 +40,5 @@ export default function Checkboxes() {
 
 	return <div className={styles.checkboxContainer}>
 		{checkboxes}
-	</div>
+	</div>;
 }

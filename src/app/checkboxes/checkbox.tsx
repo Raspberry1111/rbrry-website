@@ -7,5 +7,5 @@ export default function Checkbox({ checked, onClick }: { checked: boolean, onCli
 		onClick(isChecked);
 	}, [isChecked, onClick]);
 
-	return <input type="checkbox" checked={isChecked} onChange={e => setIsChecked(e.target.checked)} />
+	return <input type="checkbox" checked={isChecked} onChange={e => setIsChecked(e.target.checked)} />;
 }
