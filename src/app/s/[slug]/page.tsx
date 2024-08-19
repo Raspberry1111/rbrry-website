@@ -8,7 +8,7 @@ function noCacheFetch(
 	input: string | URL | globalThis.Request,
 	init?: RequestInit,
 ): Promise<Response> {
-	return fetch(input, { ...init, next: { revalidate: 3600 } });
+	return fetch(input, { ...init, next: { revalidate: 300 } });
 }
 
 async function getUrl(slug: string) {
