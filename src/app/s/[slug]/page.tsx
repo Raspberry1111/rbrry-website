@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient, Row } from "@libsql/client/web";
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound, permanentRedirect, RedirectType } from "next/navigation";
 
 // Next will cache fetch results by default, causing the database updates to not be received.
 function noCacheFetch(
@@ -22,12 +22,10 @@ async function getUrl(slug: string) {
 
 	const rows = (await turso.execute({ sql: "SELECT url FROM links WHERE id = ? LIMIT 1", args: [slug] })).rows;
 
-	console.log(rows);
 	const url = rows[0]?.url?.toString() ?? null;
 
 	if (url) {
-		console.log(url);
-		permanentRedirect(url);
+		permanentRedirect(url, RedirectType.replace);
 	} else {
 		notFound();
 	}
